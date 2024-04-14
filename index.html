@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéDraw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>PokéDraw</h1>
+        <p class="version">Beta 1.0.0</p>
+        <section class="generation-icons">
+            <img src="assets/img/generations/gen1.png" alt="Gen 1" data-gen="1" class="gen-icon active">
+            <img src="assets/img/generations/gen2.png" alt="Gen 2" data-gen="2" class="gen-icon active">
+            <img src="assets/img/generations/gen3.png" alt="Gen 3" data-gen="3" class="gen-icon active">
+            <img src="assets/img/generations/gen4.png" alt="Gen 4" data-gen="4" class="gen-icon active">
+            <img src="assets/img/generations/gen5.png" alt="Gen 5" data-gen="5" class="gen-icon active">
+            <img src="assets/img/generations/gen6.png" alt="Gen 6" data-gen="6" class="gen-icon active">
+            <img src="assets/img/generations/gen7.png" alt="Gen 7" data-gen="7" class="gen-icon active">
+            <img src="assets/img/generations/gen8.png" alt="Gen 8" data-gen="8" class="gen-icon active">
+            <img src="assets/img/generations/gen9.png" alt="Gen 9" data-gen="9" class="gen-icon active">
+        </section>
+
+        <section class="pokemon-display">
+            <img src="assets/img/missgno.gif" alt="Pokémon" id="pokemon-image">
+        </section>
+
+        <section>
+            
+        </section>
+
+        <button onclick="getRandomPokemonList()">Generar Pokémon Aleatorio</button>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

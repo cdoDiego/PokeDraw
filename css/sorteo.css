@@ -1,0 +1,68 @@
+.roulette-container {
+    width: 400px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #ccc;
+    perspective: 1000px;
+    /* Agregar perspectiva para la animación 3D */
+}
+
+/* Definir estilos comunes para los divs dentro del contenedor */
+.roulette-container>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s linear, opacity 0.5s ease;
+    /* Transiciones para transform y opacidad */
+}
+
+/* Estilo para divs invisibles */
+.invisible {
+    opacity: 0;
+}
+
+/* Estilos específicos para cada div */
+.uno {
+    transform: rotateX(60deg);
+    opacity: 0.1;
+}
+
+.dos {
+    transform: rotateX(30deg);
+    opacity: 0.5;
+}
+
+.tres {
+    font-size: 25px;
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+
+.cuatro {
+    transform: rotateX(-30deg);
+    opacity: 0.5;
+}
+
+.cinco {
+    transform: rotateX(-60deg);
+    opacity: 0.1;
+}
+
+.newItem {
+    max-height: 0;
+    animation: grow 0.5s ease-in-out forwards;
+    -webkit-animation: grow 0.5s ease-in-out forwards;
+}
+
+@-webkit-keyframes grow {
+    to {
+        max-height: 20px;
+    }
+}
+
+@keyframes grow {
+    to {
+        max-height: 20px;
+    }
+}

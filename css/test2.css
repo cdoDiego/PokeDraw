@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.rotating-list {
+    overflow: hidden;
+    width: 200px;
+    height: 150px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: lightblue;
+    padding: 10px;
+    margin-bottom: 5px;
+    transition: all 0.5s ease;
+}
+
+li.active {
+    transform: scale(1.2);
+}
+
