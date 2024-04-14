@@ -63,3 +63,12 @@ button:hover {
     font-style: italic;
     font-size: x-small;
 }
+
+.container {
+    text-align: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
