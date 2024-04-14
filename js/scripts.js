@@ -51,7 +51,8 @@ const getRandomPokemonList = async () => {
 
     const randomGen = activeGenerations[Math.floor(Math.random() * activeGenerations.length)];
     console.log(randomGen);
-
+    document.getElementById('gif').style.display = 'none';
+    document.getElementById('sorteo').style.display = 'flex';
     allPokemon = await getPokemonByGeneration(randomGen);
     allPokemon.sort(function() {
         return 0.5 - Math.random();
@@ -59,5 +60,6 @@ const getRandomPokemonList = async () => {
       
     const randomPokemon = allPokemon.slice(0, 20);
     console.log(randomPokemon);
-    return randomPokemon;
+
+    iniciarRuleta(randomPokemon);
 };

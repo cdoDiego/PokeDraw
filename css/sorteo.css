@@ -3,7 +3,6 @@
     height: 100px;
     overflow: hidden;
     position: relative;
-    border: 2px solid #ccc;
     perspective: 1000px;
     /* Agregar perspectiva para la animación 3D */
 }
@@ -13,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: capitalize;
     transition: transform 0.4s linear, opacity 0.5s ease;
     /* Transiciones para transform y opacidad */
 }

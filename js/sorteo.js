@@ -1,7 +1,8 @@
-let newPoke = 'Psyduck';
+let newPoke = [];
 let values = ['uno', 'dos', 'tres', 'cuatro', 'cinco', 'invisible'];
 
-function iniciarRuleta() {
+function iniciarRuleta(lista) {
+    newPoke = lista;
     const cantidadMinimaValores = 40;
     const cantidadMaximaValores = 55;
     const N = Math.floor(Math.random() * (cantidadMaximaValores - cantidadMinimaValores) + cantidadMinimaValores);
@@ -94,13 +95,14 @@ function animacion() {
     const rouletteContainer = document.getElementById('roulette');
     const divs = rouletteContainer.querySelectorAll('div');
     const nuevoDiv = document.createElement('div');
-    nuevoDiv.textContent = newPoke;
+    let primerElemento = newPoke.shift();
+    nuevoDiv.textContent = primerElemento;
     nuevoDiv.className = 'invisible newItem';
     rouletteContainer.insertBefore(nuevoDiv, divs[0]);
     const divUpdated = rouletteContainer.querySelectorAll('div');
     for (let i = 0; i < 5; i++) {
         divUpdated[i].className = i == 0 ? values[i] + ' newItem' : values[i];
     }
-    newPoke = divUpdated[divUpdated.length - 1].innerHTML;
+    newPoke.push(primerElemento);
     divUpdated[divUpdated.length - 1].remove();
 }
