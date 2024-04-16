@@ -68,6 +68,8 @@ function finEjecucion() {
         divs[2].classList.add('animate__animated', 'animate__tada');
     }, 500);
     console.log(`Ganador: ${divs[2].innerText}`);
+    const ganador = divs[2].innerText;
+    localStorage.setItem('ganador', ganador);
     console.log('Todos los retardos han sido utilizados');
 }
 

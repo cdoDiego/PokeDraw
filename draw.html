@@ -5,66 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draw App</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/addons/p5.sound.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+    <link rel="stylesheet" href="css/draw.css">
 </head>
 
 <body>
-    <div>
-        <button onclick="clearCanvas()">Clear</button>
-        <button onclick="saveImage()">Save</button>
-        <input type="color" id="colorPicker" onchange="setColor()">
-        <input type="range" id="brushSize" min="1" max="50" value="10" onchange="setBrushSize()">
-    </div>
-    <div>
+    <section id="options">
+        <div id="tools">
+            <button onclick="setTool('pencil')"><i class="fa-solid fa-pen"></i></button>
+            <button onclick="setTool('eraser')"><i class="fa-solid fa-eraser"></i></button>
+            <button onclick="undoButtonPressed()"><i class="fa-solid fa-trash"></i></button>
+            <button onclick="setTool('line')"><i class="fa-solid fa-slash"></i></button>
+            <button onclick="setTool('rectangle')"><i class="fa-regular fa-square"></i></button>
+            <button onclick="setTool('circle')"><i class="fa-regular fa-circle"></i></button>
+            <button><i class="fa-solid fa-fill"></i></button>
+            <button id="undoButton" onclick="undoAction()"><i class="fa-solid fa-rotate-left"></i></button>
+            <button onclick="redoAction()"><i class="fa-solid fa-rotate-right"></i></button>
+            <button onclick="clearCanvas()">Clear</button>
+            <button onclick="saveImage()">Save</button>
+        </div>
+        <div id="colors" class="colors">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <input type="color" id="colorPicker" onchange="setColor()">
+        </div>
+        <div id="size">
+
+            <input type="range" id="brushSize" min="1" max="50" value="10" onchange="setBrushSize()">
+        </div>
+    </section>
+    <section id="lienzo" class="lienzo">
         <div id="drawingCanvas"></div>
-    </div>
-
+    </section>
+    <script src="js/draw.js"></script>
+    <script src="https://kit.fontawesome.com/3afbf86514.js" crossorigin="anonymous"></script>
     <script>
-        let canvas;
-        let brushColor = '#000000';
-        let brushSize = 10;
-
-        function setup() {
-            console.log('setup');
-            canvas = createCanvas(800, 600);
-            canvas.parent('drawingCanvas'); // Coloca el lienzo dentro del div con id 'drawingCanvas'
-            background(255); // Establece el fondo blanco inicial
-        }
-
-        /*function draw() {
-            console.log('draw');
-            stroke(brushColor);
-            strokeWeight(brushSize);
-            if (mouseIsPressed) {
-                console.log('pressed');
-                line(pmouseX, pmouseY, mouseX, mouseY); // Dibuja una línea al arrastrar el ratón
-            }
-        }*/
-
-        function draw() {
-            stroke(brushColor);
-            strokeWeight(brushSize);
-            if (mouseIsPressed) {
-                line(pmouseX, pmouseY, mouseX, mouseY);
-            }
-        }
-
-        function clearCanvas() {
-            background(255); // Limpia el lienzo
-        }
-
-        function saveImage() {
-            saveCanvas(canvas, 'my_drawing', 'png'); // Guarda el contenido del lienzo como imagen PNG
-        }
-
-        function setColor() {
-            brushColor = document.getElementById('colorPicker').value; // Actualiza el color del pincel
-        }
-
-        function setBrushSize() {
-            brushSize = document.getElementById('brushSize').value; // Actualiza el tamaño del pincel
-        }
+        // Capturar el evento de clic del botón y llamar a la función de deshacer
+        document.getElementById('undoButton').addEventListener('click', function() {
+            undoAction();
+        });
     </script>
 </body>
 
