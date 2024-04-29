@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: red;
+        }
+        .cuenta-atras {
+            width: 100px;
+            height: 100px;
+            transform: rotate(-90deg);
+        }
+
+        .cuenta-atras circle {
+            fill: none;
+            stroke: white;
+            stroke-width: 10;
+            stroke-dasharray: 283;
+            /* Circunferencia del círculo (2 * π * r) */
+            transition: stroke-dashoffset 1s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="reloj">
+        <svg viewBox="0 0 100 100" class="cuenta-atras">
+            <circle r="45" cx="50" cy="50" style="stroke-dasharray: 283; stroke-dashoffset: 0;"></circle>
+        </svg>
+    </div>
+    <script>
+        function iniciarCuentaAtras(duracion) {
+            var inicio = Date.now();
+            var fin = inicio + duracion * 1000;
+            var circulo = document.querySelector('.cuenta-atras circle');
+            var total = duracion;
+            var temporizador = setInterval(function () {
+                var restante = fin - Date.now();
+                var segundosRestantes = Math.round(restante / 1000);
+                var porcentaje = ((total - segundosRestantes) / total) * 283;
+                circulo.style.strokeDashoffset = porcentaje;
+                if (segundosRestantes <= 0) {
+                    clearInterval(temporizador);
+                }
+            }, 1000);
+        }
+
+        // Iniciar la cuenta atrás con una duración de 10 segundos
+        iniciarCuentaAtras(10);
+
+    </script>
+</body>
+
+</html>
