@@ -89,6 +89,7 @@ function loadColores() {
     input.addEventListener("input", setColor);
     input.classList = 'color';
     input.id = 'colorPicker';
+    input.setAttribute('aria-label', 'changeColor');
     div.appendChild(input);
     for (let i = 0; i < colores.length; i++) {
         let elemento = document.createElement('button');
@@ -96,6 +97,7 @@ function loadColores() {
         elemento.classList = 'color';
         elemento.id = `color${colores[i]}`;
         elemento.onclick = function () { changeColor(colores[i]); };
+        elemento.setAttribute('aria-label', `changeColor-${colores[i]}`);
         // Agregar el nuevo elemento al div
         div.appendChild(elemento);
     }

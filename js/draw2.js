@@ -304,6 +304,11 @@ function setTool(tool) {
     currentTool = tool;
     if (tool != 'pencil') {
         cursor(CROSS);
+        if(tool == 'eraser') {
+            currentTool = 'pencil';
+            changeColor('rgb(255,255,255)');
+            pencilSize = eraserSize;
+        }
     } else {
         cursor('../assets/cursor2.png')
     }
