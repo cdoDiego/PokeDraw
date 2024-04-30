@@ -1,0 +1,121 @@
+* {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    /*display: flex;
+    justify-content: center;
+    align-items: center;*/
+    height: 100vh;
+    margin: 0;
+    background-image: url('../assets/img/back-w2.webp');
+    background-size: 400px;
+}
+
+.pokemon {
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 5px;
+}
+
+.resultados {
+    margin: 8px;
+}
+
+.div-img {
+    border: 6px solid black;
+    background-color: white;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.redes-sociales {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.redes-sociales .icono {
+    color: #fff;
+    margin: 0 10px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+}
+
+.pixelated-image {
+    image-rendering: pixelated;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .div-img img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Estilos para tabletas y dispositivos medianos */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+
+    .div-img {
+        display: flex;
+        max-height: 70vh;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .resultados {
+        max-width: calc(100vw - 28px) !important;
+    }
+
+    .div-img img {
+        flex: 1;
+        /* Para que las imágenes se expandan y ocupen todo el espacio disponible */
+        object-fit: contain;
+        height: auto;
+        max-width: 50%;
+    }
+}
+
+/* Estilos para pantallas grandes (como computadoras de escritorio) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+
+    .div-img {
+        display: flex;
+        max-height: 70vh;
+        overflow: hidden;
+        display: flex;
+    }
+
+    .resultados {
+        max-width: calc(100vw - 28px) !important;
+    }
+
+    .div-img img {
+        flex: 1;
+        /* Para que las imágenes se expandan y ocupen todo el espacio disponible */
+        object-fit: contain;
+        height: auto;
+        max-width: 50%;
+    }
+}

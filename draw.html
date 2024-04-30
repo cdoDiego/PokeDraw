@@ -5,47 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draw App</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.min.js"></script>
     <link rel="stylesheet" href="css/draw.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/icon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <section id="options">
-        <div id="tools">
+    <section id="options" class="options">
+        <div id="toolbar" class="toolbar">
             <button onclick="setTool('pencil')"><i class="fa-solid fa-pen"></i></button>
             <button onclick="setTool('eraser')"><i class="fa-solid fa-eraser"></i></button>
             <button onclick="undoButtonPressed()"><i class="fa-solid fa-trash"></i></button>
             <button onclick="setTool('line')"><i class="fa-solid fa-slash"></i></button>
             <button onclick="setTool('rectangle')"><i class="fa-regular fa-square"></i></button>
             <button onclick="setTool('circle')"><i class="fa-regular fa-circle"></i></button>
-            <button><i class="fa-solid fa-fill"></i></button>
             <button id="undoButton" onclick="undoAction()"><i class="fa-solid fa-rotate-left"></i></button>
             <button onclick="redoAction()"><i class="fa-solid fa-rotate-right"></i></button>
-            <button onclick="clearCanvas()">Clear</button>
-            <button onclick="saveImage()">Save</button>
+            <button onclick="setTool('fill')"><i class="fa-solid fa-fill"></i></button>
+            <!-- <button onclick="clearCanvas()">Clear</button>
+            <button onclick="saveImage()">Save</button> -->
         </div>
         <div id="colors" class="colors">
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
             <input type="color" id="colorPicker" onchange="setColor()">
         </div>
-        <div id="size">
-
-            <input type="range" id="brushSize" min="1" max="50" value="10" onchange="setBrushSize()">
+        <div id="size" class="size">
+            <i class="fa-regular fa-circle-dot"></i>
+            <input style="width: 100%;" type="range" id="brushSize" min="1" max="50" value="10"
+                onchange="setBrushSize()">
+            <i class="fa-solid fa-circle"></i>
         </div>
     </section>
-    <section id="lienzo" class="lienzo">
-        <div id="drawingCanvas"></div>
+    <section class="draw-section">
+        <div class="pokemon" id="pokemon">
+            Mimikyu
+            <span id="timer">1:00</span>
+        </div>
+        <div id="lienzo" class="lienzo">
+            <div id="drawingCanvas" class="drawingCanvas"></div>
+        </div>
+        <div class="ready">
+            <button onclick="dibujoListo()"><i class="fa-regular fa-circle-check"></i> Listo</button>
+        </div>
     </section>
-    <script src="js/draw.js"></script>
+    <dialog class="nes-dialog" id="dialog-showPoke">
+        <div method="dialog" class="dialog-showPoke">
+            <img id="showPokeImg" alt="poke-a-dibujar" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/5.png">
+            <menu class="dialog-menu">
+                <button onclick="closeModal()" class="listo-btn nes-btn is-primary">Listo</button>
+            </menu>
+        </div>
+    </dialog>
+    <script src="js/timer.js"></script>
+    <script src="js/colores.js"></script>
+    <script src="js/config.js"></script>
+    <script> useConfig(); </script>
+    <script src="js/draw2.js"></script>
     <script src="https://kit.fontawesome.com/3afbf86514.js" crossorigin="anonymous"></script>
     <script>
         // Capturar el evento de clic del botón y llamar a la función de deshacer
-        document.getElementById('undoButton').addEventListener('click', function() {
+        document.getElementById('undoButton').addEventListener('click', function () {
             undoAction();
         });
     </script>

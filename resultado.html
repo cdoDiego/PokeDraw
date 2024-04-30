@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/icon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/resultado.css" />
+</head>
+
+<body>
+    <section class="resultados">
+        <div class="pokemon" id="pokemon">
+
+        </div>
+        <div class="div-img">
+            <img id="imagenDibujo" alt="Mi Dibujo">
+            <img class="pixelated-image" id="imagenPoke" alt="Pokémon Original">
+        </div>
+    </section>
+    <section class="options">
+        <menu class="dialog-menu">
+            <button class="nes-btn" onclick="descargarDibujo()">Descargar Dibujo</button>
+            <button class="nes-btn" onclick="descargarComparativa()">Descargar Comparación</button>
+            <button class="nes-btn is-success" onclick=" window.location.href = 'index.html';">Volver al inicio</button>
+        </menu>
+    </section>
+    <footer>
+        <div class="redes-sociales">
+            <a href="https://www.tiktok.com/@cdodiego" class="icono"><i class="fab fa-tiktok"></i></a>
+            <a href="https://twitter.com/cdo5d" class="icono"><i class="fab fa-twitter"></i></a>
+            <a href="https://discord.gg/tq2G8Sb" class="icono"><i class="fab fa-discord"></i></a>
+            <a href="https://www.twitch.tv/cdodiego" class="icono"><i class="fab fa-twitch"></i></a>
+        </div>
+        <div class="text-center p-3">
+            © 2024 Copyright:
+            <a class="text-white" href="https://twitter.com/cdo5d">cdoDiego</a>
+        </div>
+    </footer>
+
+    <script src="js/resultados.js"></script>
+    <script src="https://kit.fontawesome.com/3afbf86514.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

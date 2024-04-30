@@ -11,8 +11,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('../assets/img/background2.jpg');
-    background-size: cover;
+    background-image: url('../assets/img/back-w2.webp');
+    background-size: 400px;
 }
 
 .container {
@@ -44,7 +44,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     background-color: #007bff;
-    color: #fff;
+    color: #000000;
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -70,4 +70,54 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.mode {
+    margin: 8px;
+}
+
+.modos {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modo {
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 10px;
+    margin: 8px;
+    display: flex;
+}
+
+.modo.active {
+    outline: 3px red solid;
+}
+
+.modo img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.modo p {
+    font-size: 8px;
+    text-wrap: wrap;
+    flex-grow: 1;
+    text-align: left;
+    margin: 3px 17px;
+}
+
+.modo p span {
+    font-size: 10px;
+    display: block;
+}
+
+.config-cont {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
 }

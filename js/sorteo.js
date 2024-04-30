@@ -70,6 +70,7 @@ function finEjecucion() {
     console.log(`Ganador: ${divs[2].innerText}`);
     const ganador = divs[2].innerText;
     localStorage.setItem('ganador', ganador);
+    setTimeout(()=>  window.location.href = 'draw.html', 1000)
     console.log('Todos los retardos han sido utilizados');
 }
 

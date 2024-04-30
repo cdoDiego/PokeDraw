@@ -23,6 +23,7 @@ function iniciarCronometro(duracion) {
             clearInterval(intervalo);
             cronometroElemento.textContent = "Tiempo agotado";
             //Acción de terminar timer
+            dibujoListo();
         }
     }
 

@@ -46,6 +46,7 @@ const getPokemonByGeneration = async (gen) => {
 const getRandomPokemonList = async () => {
     let allPokemon = [];
 
+    setConfig();
     const activeGenerations = Array.from(document.querySelectorAll('.gen-icon.active'))
         .map(icon => icon.getAttribute('data-gen'));
 
