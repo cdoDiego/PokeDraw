@@ -43,7 +43,6 @@ imagen.onload = function () {
 
     // Mostrar los colores más comunes (aquí podrías ajustar la cantidad que deseas mostrar)
     const numColorsToShow = sortedColors.length > 10 ? 10 : sortedColors;
-    console.log('o');
     /*const div = document.getElementById('colores');
     div.innerHTML = '';*/
     for (let i = numColorsToShow; i >= 0; i--) {
@@ -73,7 +72,6 @@ function actualizarColores(nuevoColor) {
 
     // Verificar si la lista tiene más elementos de los permitidos
     const maxCantidadColores = colorDefault.length; // Cambia este valor según tu requisito
-    console.log(colores.length);
     if (colores.length > maxCantidadColores) {
         // Si la lista tiene más elementos de los permitidos, eliminamos el último
         colores.pop();

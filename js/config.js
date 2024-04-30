@@ -1,8 +1,8 @@
 const modeNormal = {
-    time: 60,
+    time: 0,
     showPoke: true,
     colors: true,
-    showTime: 10
+    showTime: 0
 };
 const modeSuper = {
     time: 0,
@@ -28,15 +28,14 @@ let config = modeNormal;
 function setConfig() {
     let time = document.getElementById('time').value;
     let showPoke = document.getElementById('showPoke').value == "on";
-    let colors = document.getElementById('coloresPoke').value;
-    let showTime = document.getElementById('showTime').value == "on";
+    let colors = document.getElementById('coloresPoke').value == "on";
+    let showTime = document.getElementById('showTime').value;
     config = {
         time,
         showPoke,
         colors,
         showTime
     };
-    console.log(config);
     localStorage.setItem('config', JSON.stringify(config));
 }
 
@@ -64,7 +63,15 @@ function changeMode(mode) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(mode).className += " active";
+    loadConfig();
     localStorage.setItem('config', JSON.stringify(config));
+}
+
+function loadConfig() {
+    document.getElementById('time').value = config.time;
+    document.getElementById('showPoke').value = config.showPoke ? "on" : "off";
+    document.getElementById('coloresPoke').value = config.colors ? "on" : "off";
+    document.getElementById('showTime').value = config.showTime;
 }
 
 async function useConfig() {

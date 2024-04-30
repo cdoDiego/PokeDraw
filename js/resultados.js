@@ -8,7 +8,7 @@ function loadPokemon() {
 async function getPokemonImage(pokemonName) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
     const data = await response.json();
-    var url = data.sprites.front_default;
+    var url = data.sprites.other.home.front_default;
     document.getElementById('imagenPoke').src = url;
     urlToBase64(url, function (base64) {
         document.getElementById('imagenPoke').src = base64;
@@ -28,6 +28,7 @@ function descargarDibujo() {
 }
 
 function descargarComparativa() {
+    const pokemonName = localStorage.getItem('ganador');
     let imagen1 = document.getElementById('imagenDibujo');
     let imagen2 = document.getElementById('imagenPoke');
     console.log('wid: ' + imagen1.width + ' ' + imagen2.width);
@@ -52,11 +53,10 @@ function descargarComparativa() {
     let size = Math.min(imagen2.width, imagen2.height);
     let offsetX = (imagen1.width - size)/2;
     let offsetY = (altoImagen - size)/2;
-    console.log(offsetY);
-    ctx.drawImage(imagen2 + offsetY, imagen1.width + offsetX, 0, size, size); // Dibujar la segunda imagen al lado de la primera
+    ctx.drawImage(imagen2, imagen1.width + offsetX, offsetY, size, size); // Dibujar la segunda imagen al lado de la primera
 
     let imagenCombinada = canvas.toDataURL('image/jpeg'); // Obtener la imagen combinada como base64
-    descargarBase64ComoImagen(imagenCombinada, 'imagen_combinada.jpg'); // Descargar la imagen combinada
+    descargarBase64ComoImagen(imagenCombinada, `${pokemonName}_realidadVsExpectativa.png`); // Descargar la imagen combinada
 }
 
 function descargarBase64ComoImagen(base64, nombreArchivo) {
