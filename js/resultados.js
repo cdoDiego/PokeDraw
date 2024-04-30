@@ -21,7 +21,7 @@ function descargarDibujo() {
     let base64 = localStorage.getItem('imagenBase64');
     var enlace = document.createElement('a');
     enlace.href = base64;
-    enlace.download = `${pokemonName}_dibujo.png`; // Nombre del archivo
+    enlace.download = `${pokemonName}_dibujo.jpg`; // Nombre del archivo
     document.body.appendChild(enlace);
     enlace.click();
     document.body.removeChild(enlace);
@@ -56,7 +56,7 @@ function descargarComparativa() {
     ctx.drawImage(imagen2, imagen1.width + offsetX, offsetY, size, size); // Dibujar la segunda imagen al lado de la primera
 
     let imagenCombinada = canvas.toDataURL('image/jpeg'); // Obtener la imagen combinada como base64
-    descargarBase64ComoImagen(imagenCombinada, `${pokemonName}_realidadVsExpectativa.png`); // Descargar la imagen combinada
+    descargarBase64ComoImagen(imagenCombinada, `${pokemonName}_realidadVsExpectativa.jpg`); // Descargar la imagen combinada
 }
 
 function descargarBase64ComoImagen(base64, nombreArchivo) {
