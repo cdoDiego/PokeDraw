@@ -89,6 +89,7 @@ function loadColores() {
     input.id = 'colorPicker';
     input.setAttribute('aria-label', 'changeColor');
     div.appendChild(input);
+    console.log('totalcolors: ' + colores.length);
     for (let i = 0; i < colores.length; i++) {
         let elemento = document.createElement('button');
         elemento.style = `background-color: ${colores[i]};`
@@ -144,6 +145,4 @@ async function getPokemonImage(home = true) {
     console.log(data);
     return home ? data.sprites.other.home.front_default : data.sprites.front_default;
 }
-
-loadColores();
 

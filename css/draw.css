@@ -218,6 +218,38 @@ input[type="color"]::-webkit-color-swatch {
     body {
         font-size: 16px;
     }
+
+    .toolbar,
+    .colors {
+        display: flex;
+        gap: 20px;
+        max-width: 100%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        align-items: center;
+        scroll-padding: 1rem;
+        padding: 1rem;
+    }
+
+    button {
+        flex: 0 0 40px;
+    }
+
+    .options {
+        margin-bottom: 5px;
+    }
+
+    .ready button {
+        width: 100%;
+        justify-content: center;
+        flex: none;
+    }
+
+    .dialog-showPoke img {
+        width: 50vw;
+        height: auto;
+    }
 }
 
 /* Estilos para pantallas grandes (como computadoras de escritorio) */

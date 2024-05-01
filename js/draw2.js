@@ -364,3 +364,9 @@ function dibujoListo() {
 }
 
 setTimeout(resizeInfo, 500);
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('o');
+    loadColores();
+    console.log('call');
+});
