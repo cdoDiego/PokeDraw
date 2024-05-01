@@ -21,6 +21,7 @@
     <div class="container">
         <h1>PokéDraw</h1>
         <p class="version nes-pointer" onclick="window.location.href = 'nextUpdate.html';">Beta 1.0.0</p>
+        <p style="font-size: 8px;">Elige la(s) generacion(es)</p>
         <section class="generation-icons">
             <img src="assets/img/generations/gen1.png" alt="Gen 1" data-gen="1" class="gen-icon active nes-pointer">
             <img src="assets/img/generations/gen2.png" alt="Gen 2" data-gen="2" class="gen-icon active nes-pointer">
@@ -74,7 +75,7 @@
             </div>
             <div class="configuration tabcontent" id="configuraciones">
                 <section class="config-cont">
-                    <label for="default_select">Tiempo</label>
+                    <label for="default_select">Tiempo:</label>
                     <div class="nes-select">
                         <select required id="time">
                             <option selected value="0">Infinito</option>
@@ -95,7 +96,7 @@
                         <input id="showPoke" type="checkbox" class="nes-checkbox" checked />
                         <span>Mostrar Pokémon antes de dibujar</span>
                     </label>
-                    <label for="default_select">Tiempo mostrar Pokémon</label>
+                    <label for="default_select">Tiempo mostrar Pokémon:</label>
                     <div class="nes-select">
                         <select required id="showTime">
                             <option selected value="0">Sin tiempo</option>
