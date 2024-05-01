@@ -131,18 +131,18 @@ function loadImagen(src) {
 }
 
 async function suggestColors() {
-    const src = await getPokemonImage();
+    const src = await getPokemonImage(false);
     console.log(src);
     loadImagen(src);
 }
 
-async function getPokemonImage() {
+async function getPokemonImage(home = true) {
     const winnerPoke = localStorage.getItem('ganador') || 'Blitzle';
     console.log(winnerPoke);
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${winnerPoke.toLowerCase()}`);
     const data = await response.json();
     console.log(data);
-    return data.sprites.other.home.front_default;
+    return home ? data.sprites.other.home.front_default : data.sprites.front_default;
 }
 
 loadColores();
