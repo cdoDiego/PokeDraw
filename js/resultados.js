@@ -98,5 +98,5 @@ function urlToBase64(url, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    loadColores();
+    loadPokemon();
 });
