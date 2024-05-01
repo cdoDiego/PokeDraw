@@ -136,13 +136,21 @@ function drawPencil(path, color, size) {
 }
 
 function drawFill(path, color, size) {
-    stroke(color);
+    /*stroke(color);
     strokeWeight(size);
     for (let i = 0; i < path.length - 1; i++) {
         let pointA = path[i];
         let pointB = path[i + 1];
         line(pointA.x, pointA.y, pointB.x, pointB.y);
+    }*/
+
+    stroke(color);
+    strokeWeight(size);
+    beginShape();
+    for (let i = 0; i < path.length; i++) {
+        vertex(path[i].x, path[i].y);
     }
+    endShape();
 }
 
 function touchStarted() {
