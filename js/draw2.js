@@ -34,7 +34,7 @@ function setup() {
     previewLayer = createGraphics(width, height);
     previewLayer.clear();
     //loadPixels();
-    cursor('../assets/cursor2.png');
+    cursor('./assets/cursor2.png');
 
     // Asignar eventos de ratón o táctiles según el dispositivo
     if (isTouchDevice()) {
