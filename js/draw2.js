@@ -190,8 +190,21 @@ function handleToolInteraction() {
     if (currentTool === 'pencil') {
         if (mouseIsPressed || touches.length > 0) {
             // Dibujar con el lápiz en la capa de "preview"
+            // Obtener el trazo actual del lápiz
             let currentPath = drawingHistory[drawingHistory.length - 1].path;
-            currentPath.push({ x: isTouchDevice() ? touches[0].x : mouseX, y: isTouchDevice() ? touches[0].y : mouseY });
+            
+            // Obtener la posición actual del ratón o el dedo
+            let x = isTouchDevice() ? touches[0].x : mouseX;
+            let y = isTouchDevice() ? touches[0].y : mouseY;
+            
+            // Calcular la distancia desde el último punto agregado al trazo
+            let dx = x - currentPath[currentPath.length - 1].x;
+            let dy = y - currentPath[currentPath.length - 1].y;
+            
+            // Agregar un nuevo punto al trazo solo si la distancia es lo suficientemente grande
+            if (dist(dx, dy, 0, 0) > pencilSize / 2) {
+                currentPath.push({ x: x, y: y });
+            }
         }
     } else if (currentTool === 'line') {
         if (mouseIsPressed || touches.length > 0) {
