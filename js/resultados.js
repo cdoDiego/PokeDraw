@@ -99,4 +99,10 @@ function urlToBase64(url, callback) {
 
 document.addEventListener('DOMContentLoaded', function () {
     loadPokemon();
+    let imgBase64 = localStorage.getItem('imagenBase64');
+    if (imgBase64) {
+        document.getElementById('imagenDibujo').src = imgBase64;
+    } else {
+        document.getElementById('imagenDibujo').src = 'assets/img/missing-no.webp'; // Cambia por una imagen por defecto
+    }
 });
