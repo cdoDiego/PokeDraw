@@ -1,121 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="¡Dibuja un Pokémon al azar y compara tus creaciones con las originales!">
     <title>PokéDraw</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/sorteo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="icon" type="image/x-icon" href="/assets/img/icon.ico">
-    <link rel="stylesheet" href="css/tabs.css">
-    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-</head>
-
-<body>
-    <div class="container">
-        <h1>PokéDraw</h1>
-        <p class="version nes-pointer" onclick="window.location.href = 'nextUpdate.html';">Beta 1.0.0</p>
-        <p style="font-size: 8px;">Elige la(s) generacion(es)</p>
-        <section class="generation-icons">
-            <img src="assets/img/generations/gen1.png" alt="Gen 1" data-gen="1" class="gen-icon active nes-pointer">
-            <img src="assets/img/generations/gen2.png" alt="Gen 2" data-gen="2" class="gen-icon active nes-pointer">
-            <img src="assets/img/generations/gen3.png" alt="Gen 3" data-gen="3" class="gen-icon active nes-pointer">
-            <img src="assets/img/generations/gen4.png" alt="Gen 4" data-gen="4" class="gen-icon active nes-pointer">
-            <img src="assets/img/generations/gen5.png" alt="Gen 5" data-gen="5" class="gen-icon active nes-pointer">
-            <img src="assets/img/generations/gen6.png" alt="Gen 6" data-gen="6" class="gen-icon active nes-pointer">
-            <img src="assets/img/generations/gen7.png" alt="Gen 7" data-gen="7" class="gen-icon active nes-pointer">
-            <img src="assets/img/generations/gen8.png" alt="Gen 8" data-gen="8" class="gen-icon active nes-pointer">
-            <img src="assets/img/generations/gen9.png" alt="Gen 9" data-gen="9" class="gen-icon active nes-pointer">
-        </section>
-
-        <section class="pokemon-display" id="gif">
-            <img src="assets/img/missing-no.webp" alt="Pokémon" id="pokemon-image">
-        </section>
-        <section class="cont-sorteo" id="sorteo" style="display: none;">
-            <div class="roulette-container" id="roulette">
-                <!-- Agregar un div inicial invisible -->
-                <div class="uno">Charmander</div>
-                <div class="dos">Bulbasaur</div>
-                <div class="tres">Mudkip</div>
-                <div class="cuatro">Squirtle</div>
-                <div class="cinco"></div>
-            </div>
-        </section>
-
-        <button class="nes-btn" onclick="getRandomPokemonList()">Generar Pokémon Aleatorio</button>
-        <section class="mode">
-            <div class="tab">
-                <button id="modoTab" class="tablinks nes-pointer" onclick="changeTab(event, 'modo')">Modo</button>
-                <button id="configTab" class="tablinks nes-pointer"
-                    onclick="changeTab(event, 'configuraciones')">Configuraciones</button>
-            </div>
-            <div class="modos tabcontent" id="modo">
-                <article id="normal" class="modo nes-pointer active" onclick="changeMode('normal')">
-                    <img src="assets/pokeballs/normal.png" alt="pokeball">
-                    <p><span>Modo Normal:</span> Muestra la foto del poke y debes dibujarlo</p>
-                </article>
-                <article id="super" class="modo nes-pointer" onclick="changeMode('super')">
-                    <img src="assets/pokeballs/super.png" alt="superball">
-                    <p><span>Modo Super:</span> Muestra la foto del poke 5 segundos y debes dibujarlo</p>
-                </article class="modo">
-                <article id="ultra" class="modo nes-pointer" onclick="changeMode('ultra')">
-                    <img src="assets/pokeballs/ultra.png" alt="ultraball">
-                    <p><span>Modo Ultra:</span> Solo puedes ver el nombre</p>
-                </article>
-                <article id="quick" class="modo nes-pointer" onclick="changeMode('quick')">
-                    <img src="assets/pokeballs/quick.png" alt="quickball">
-                    <p><span>Modo Rápido:</span> Solo puedes ver el nombre y tienes tiempo para dibujar </p>
-                </article>
-            </div>
-            <div class="configuration tabcontent" id="configuraciones">
-                <section class="config-cont">
-                    <label for="default_select">Tiempo:</label>
-                    <div class="nes-select">
-                        <select required id="time">
-                            <option selected value="0">Infinito</option>
-                            <option value="30">30 segundos</option>
-                            <option value="60">1 minuto</option>
-                            <option value="90">1 minuto y 30 segundos</option>
-                            <option value="120">2 minutos</option>
-                            <option value="180">3 minutos</option>
-                            <option value="300">5 minutos</option>
-                            <option value="600">10 minutos</option>
-                        </select>
-                    </div>
-                    <label>
-                        <input id="coloresPoke" type="checkbox" class="nes-checkbox" checked />
-                        <span>Sugerir Colores</span>
-                    </label>
-                    <label>
-                        <input id="showPoke" type="checkbox" class="nes-checkbox" checked />
-                        <span>Mostrar Pokémon antes de dibujar</span>
-                    </label>
-                    <label for="default_select">Tiempo mostrar Pokémon:</label>
-                    <div class="nes-select">
-                        <select required id="showTime">
-                            <option selected value="0">Sin tiempo</option>
-                            <option value="5">5 segundos</option>
-                            <option value="10">10 segundos</option>
-                            <option value="15">15 segundos</option>
-                            <option value="20">20 segundos</option>
-                            <option value="180">30 segundos</option>
-                        </select>
-                    </div>
-                </section>
-            </div>
-        </section>
-    </div>
-
-    <script src="js/sorteo.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/tabs.js"></script>
-    <script src="js/config.js"></script>
-</body>
-
+    <script type="module" crossorigin src="/assets/index-3Enn9mVn.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BUIvlCiR.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
